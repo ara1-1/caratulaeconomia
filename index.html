@@ -117,7 +117,52 @@
     border-radius: 8px;
     font-size: 16px;
   }
+
+  /* --- QUIZ --- */
+  .quiz {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f4ff;
+    border-radius: 10px;
+  }
+
+  .quiz h2 {
+    margin-bottom: 10px;
+  }
+
+  .quiz button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #4a76ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .quiz button:hover {
+    background: #3a5ed8;
+  }
+
+  #resultado {
+    margin-top: 15px;
+    font-weight: bold;
+  }
 </style>
+
+<script>
+function corregirQuiz() {
+  let puntos = 0;
+
+  if (document.querySelector('input[name="p1"]:checked')?.value === "correcta") puntos++;
+  if (document.querySelector('input[name="p2"]:checked')?.value === "correcta") puntos++;
+  if (document.querySelector('input[name="p3"]:checked')?.value === "correcta") puntos++;
+
+  document.getElementById("resultado").innerText =
+    "Obtuviste " + puntos + " de 3 respuestas correctas.";
+}
+</script>
+
 </head>
 
 <body>
@@ -133,7 +178,7 @@
   <img src="img/escudo.jpg" alt="Escudo del CENS">
 </div>
 
-<!-- UNIDAD 1 (REEMPLAZADA POR EL DISEÑO VISUAL) -->
+<!-- UNIDAD 1 -->
 <div class="seccion">
   <header>
     <div class="pill">
@@ -184,6 +229,26 @@
   <p>Contenido aquí…</p>
 </div>
 
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Quiz rápido (3 preguntas)</h2>
+
+  <p><strong>1) ¿Qué es un dato?</strong></p>
+  <label><input type="radio" name="p1" value="correcta"> Un elemento aislado sin interpretar</label><br>
+  <label><input type="radio" name="p1" value="incorrecta"> Una conclusión final</label><br>
+
+  <p><strong>2) ¿Qué es información?</strong></p>
+  <label><input type="radio" name="p2" value="incorrecta"> Un número sin contexto</label><br>
+  <label><input type="radio" name="p2" value="correcta"> Datos organizados que tienen significado</label><br>
+
+  <p><strong>3) ¿Cuál es la relación entre dato e información?</strong></p>
+  <label><input type="radio" name="p3" value="correcta"> El dato es materia prima y la información es el resultado</label><br>
+  <label><input type="radio" name="p3" value="incorrecta"> Son exactamente lo mismo</label><br>
+
+  <button onclick="corregirQuiz()">Ver resultados</button>
+
+  <p id="resultado"></p>
+</div>
+
 </body>
 </html>
-

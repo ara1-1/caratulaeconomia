@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 – Dato e Información</title>
+
+<style>
+  body { font-family: Arial; margin: 20px; }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: #4a76ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    background: #e8eefe;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .pill-dot {
+    width: 10px;
+    height: 10px;
+    background: #4a76ff;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  header h1 { font-size: 32px; margin: 10px 0; }
+  header h1 span { color: #4a76ff; }
+  .tag { color: #666; }
+
+  .section {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f7f9ff;
+    border-radius: 10px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    width: 28px;
+    height: 28px;
+    background: #4a76ff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  .summary-card {
+    margin-top: 25px;
+    padding: 15px;
+    background: #e8f0fe;
+    border-left: 4px solid #4a76ff;
+    border-radius: 8px;
+  }
+
+  /* QUIZ */
+  .quiz {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f4ff;
+    border-radius: 10px;
+  }
+
+  .quiz button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #4a76ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
+
+  #resultado { margin-top: 15px; font-weight: bold; }
+</style>
+
+<script>
+function corregirQuiz() {
+  let puntos = 0;
+
+  if (document.querySelector('input[name="p1"]:checked')?.value === "correcta") puntos++;
+  if (document.querySelector('input[name="p2"]:checked')?.value === "correcta") puntos++;
+  if (document.querySelector('input[name="p3"]:checked')?.value === "correcta") puntos++;
+
+  document.getElementById("resultado").innerText =
+    "Obtuviste " + puntos + " de 3 respuestas correctas.";
+}
+</script>
+
+</head>
+
+<body>
+
+<a class="volver" href="index.html">← Volver al inicio</a>
+
+<header>
+  <div class="pill">
+    <span class="pill-dot"></span>
+    <span>Fundamentos de datos</span>
+  </div>
+
+  <h1>Dato e <span>Información</span></h1>
+  <p class="tag">Guía visual para estudiar</p>
+</header>
+
+<section class="section">
+  <div class="section-title">
+    <div class="badge">D</div> <span>Dato</span>
+  </div>
+  <p>Es un elemento básico, aislado, sin interpretar. Por sí solo no dice mucho.</p>
+  <div>Ejemplo: 23, rojo, lunes, 45%.</div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <div class="badge">I</div> <span>Información</span>
+  </div>
+  <p>Es el resultado de organizar, analizar o interpretar datos para que tengan significado.</p>
+  <div>Ejemplo: “La temperatura promedio de hoy es 23°C”.</div>
+</section>
+
+<section class="summary-card">
+  👉 El <strong>dato</strong> es materia prima; la <strong>información</strong> es el producto final.
+</section>
+
+<!-- QUIZ DEBAJO DEL TEMA -->
+<div class="quiz">
+  <h2>Quiz rápido (3 preguntas)</h2>
+
+  <p><strong>1) ¿Qué es un dato?</strong></p>
+  <label><input type="radio" name="p1" value="correcta"> Un elemento aislado sin interpretar</label><br>
+  <label><input type="radio" name="p1" value="incorrecta"> Una conclusión final</label><br>
+
+  <p><strong>2) ¿Qué es información?</strong></p>
+  <label><input type="radio" name="p2" value="incorrecta"> Un número sin contexto</label><br>
+  <label><input type="radio" name="p2" value="correcta"> Datos organizados con significado</label><br>
+
+  <p><strong>3) Relación entre dato e información</strong></p>
+  <label><input type="radio" name="p3" value="correcta"> El dato es materia prima</label><br>
+  <label><input type="radio" name="p3" value="incorrecta"> Son lo mismo</label><br>
+
+  <button onclick="corregirQuiz()">Ver resultados</button>
+
+  <p id="resultado"></p>
+</div>
+
+</body>
+</html>
